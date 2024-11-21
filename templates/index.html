@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<section class="pt-20">
+  <div class="container flex flex-col items-center gap-6 text-center">
+    <div class="w-full space-y-5">
+      <h1 class="text-6xl font-bold max-w-[63%] mx-auto">
+        The Best Place to Identify Your Cat's Breed with Just a Photo!
+      </h1>
+      <p class="max-w-[58%] mx-auto text-gray-500">
+        Simply upload or take a photo, and let our classifier reveal your cat's
+        breed. Explore the fascinating world of feline genetics and
+        characteristics with ease.
+      </p>
+    </div>
+    <div class="">
+      <a
+        href="{{ url_for('classify') }}"
+        class="px-6 py-3 block bg-primary rounded-full font-medium text-white hover:scale-[1.05] transition-all duration-300 hover:bg-black"
+      >
+        Get Started Now
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
