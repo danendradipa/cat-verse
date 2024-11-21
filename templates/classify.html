@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="pt-20 pb-6">
+  <div class="container">
+    <h1 class="text-4xl font-bold text-center">Classify Your Cat's Breed</h1>
+    <form
+      action="/classify"
+      method="POST"
+      enctype="multipart/form-data"
+      class="mt-10 text-center"
+    >
+      <div
+        class="max-w-[35%] border-2 border-primary rounded-lg bg-orange-50 mx-auto"
+      >
+        <label for="upload" class="text-primary text-base">
+          <p class="px-6 py-6">
+            Upload your cat image
+            <span class="font-semibold cursor-pointer underline">Here:</span>
+          </p>
+        </label>
+      </div>
+      <input
+        type="file"
+        id="upload"
+        name="upload"
+        accept="image/*"
+        required
+        class="my-2"
+        onchange="previewImage(event)"
+        hidden
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 mt-4 mb-6 bg-primary text-white rounded-full font-medium"
+      >
+        Classify
+      </button>
+    </form>
+
+    <!-- Preview Image -->
+    <img
+      id="preview"
+      src=""
+      alt="Image Preview"
+      class="max-w-[35%] mx-auto rounded-md hidden"
+    />
+
+    {% if image_url %}
+    <div class="mt-6">
+      <img
+        src="{{ image_url }}"
+        alt="Uploaded Image"
+        class="max-w-[35%] mx-auto rounded-md"
+      />
+    </div>
+    {% endif %}
+</section>
+
+<section>
+  <div class="container">
+    <div class="mt-6">
+      {% if breed %}
+      <div class="mt-2">
+        <h2 class="text-2xl font-semibold text-center">Predicted Breed: {{ breed }}</h2>
+      </div>
+      {% endif %}
+
+      {% if message %}
+      <div class="mt-10">
+        <h2 class="text-red-600 text-2xl font-semibold text-center">{{ message }}</h2>
+      </div>
+      {% endif %}
+    </div>
+    <!-- Card Container -->
+    <div id="breed-card" class="mt-10 max-w-[70%] mx-auto"></div>
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='dist/js/preview.js') }}"></script>
+
+
+{% endblock %}
