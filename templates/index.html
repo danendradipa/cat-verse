@@ -1,17 +1,15 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-
-<section class="pt-20">
+<section class="pt-20 pb-20">
   <div class="container flex flex-col items-center gap-6 text-center">
     <div class="w-full space-y-5">
       <h1 class="text-6xl font-bold max-w-[63%] mx-auto">
-        The Best Place to Identify Your Cat's Breed with Just a Photo!
+        Situs terbaik buat ketahui ras kucingmu cuma pakai satu foto aja!
       </h1>
-      <p class="max-w-[58%] mx-auto text-gray-500">
-        Simply upload or take a photo, and let our classifier reveal your cat's
-        breed. Explore the fascinating world of feline genetics and
-        characteristics with ease.
+      <p class="max-w-[55%] mx-auto text-gray-500">
+        Cukup upload atau ambil foto kucingmu, dan biarkan kami bantu mengungkap
+        rasnya. Temukan fakta menarik tentang kucingmu dengan cara yang simpel
+        dan menyenangkan!
       </p>
     </div>
     <div class="">
@@ -19,8 +17,633 @@
         href="{{ url_for('classify') }}"
         class="px-6 py-3 block bg-primary rounded-full font-medium text-white hover:scale-[1.05] transition-all duration-300 hover:bg-black"
       >
-        Get Started Now
+        Mulai Sekarang
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- Ras Section -->
+<section id="ras" class="bg-secondary overflow-hidden py-20">
+  <div class="container">
+    <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
+      <h1 class="uppercase font-semibold text-primary">Yuk Kenalan</h1>
+      <p class="font-semibold text-3xl">Ras Kucing Paling Populer</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Abyssinian -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/abys.png') }}"
+          alt="Abyssinian"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Abyssinian</h2>
+          <p class="text-gray-500 mb-4">
+            Kucing Abyssinian berasal dari Ethiopia dan dikenal sebagai kucing
+            yang aktif dan cerdas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bengal -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/bengal.png') }}"
+          alt="Bengal"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Bengal</h2>
+          <p class="text-gray-500 mb-4">
+            Bengal memiliki pola bulu seperti macan tutul dan sangat energik
+            serta suka bermain.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bombay -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/bombay.png') }}"
+          alt="Bombay"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Bombay</h2>
+          <p class="text-gray-500 mb-4">
+            Bombay memiliki bulu hitam pekat dan kepribadian yang ramah serta
+            penuh kasih sayang.
+          </p>
+        </div>
+      </div>
+
+      <!-- British Shorthair -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/british.png') }}"
+          alt="British Shorthair"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">British Shorthair</h2>
+          <p class="text-gray-500 mb-4">
+            British Shorthair terkenal dengan tubuh kekar, bulu lebat, dan sifat
+            yang tenang.
+          </p>
+        </div>
+      </div>
+
+      <!-- Domestic -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/domestic.png') }}"
+          alt="Domestic"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Domestic</h2>
+          <p class="text-gray-500 mb-4">
+            Domestic cats adalah kucing peliharaan yang memiliki beragam warna,
+            ukuran, dan kepribadian.
+          </p>
+        </div>
+      </div>
+
+      <!-- Maine Coon -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/maine.png') }}"
+          alt="Maine Coon"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Maine Coon</h2>
+          <p class="text-gray-500 mb-4">
+            Maine Coon adalah kucing besar berbulu lebat dengan sifat ramah dan
+            penuh kasih sayang.
+          </p>
+        </div>
+      </div>
+
+      <!-- Persian -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/persian.png') }}"
+          alt="Persian"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Persian</h2>
+          <p class="text-gray-500 mb-4">
+            Persian memiliki bulu panjang dan wajah bulat, dikenal dengan
+            sifatnya yang tenang.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ragdoll -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/ragdoll.png') }}"
+          alt="Ragdoll"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Ragdoll</h2>
+          <p class="text-gray-500 mb-4">
+            Ragdoll dikenal sangat lembut dan suka mengikuti pemiliknya ke mana
+            saja.
+          </p>
+        </div>
+      </div>
+
+      <!-- Siamese -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/siamese.png') }}"
+          alt="Siamese"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Siamese</h2>
+          <p class="text-gray-500 mb-4">
+            Siamese memiliki bulu pendek dengan pola khas dan vokalisasi yang
+            unik.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sphynx -->
+      <div
+        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+      >
+        <img
+          src="{{ url_for('static', filename='dist/images/sphynx.png') }}"
+          alt="Sphynx"
+          class="h-48 w-full object-cover"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-xl font-semibold mb-2">Sphynx</h2>
+          <p class="text-gray-500 mb-4">
+            Sphynx adalah kucing tanpa bulu dengan sifat yang sangat ramah dan
+            energik.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Section -->
+<section id="feature" class="bg-secondary overflow-hidden py-20">
+  <div class="container">
+    <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
+      <h1 class="uppercase font-semibold text-primary">
+        Kenapa pilih CatVerse?
+      </h1>
+      <p class="font-semibold text-3xl">Fitur yang ada di CatVerse</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Fitur 1 -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div
+          class="w-10 h-10 rounded-lg flex justify-center items-center bg-blue-600 text-white"
+        >
+          <span class="text-2xl">😺</span>
+        </div>
+        <div class="space-y-3">
+          <p class="font-semibold">Deteksi Ras Kucing</p>
+          <p class="text-sm text-gray-500">
+            Kenali ras kucingmu dari 10 kategori populer dengan akurasi tinggi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fitur 2 -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div
+          class="w-10 h-10 rounded-lg flex justify-center items-center bg-purple-500 text-white"
+        >
+          <span class="text-2xl">📱</span>
+        </div>
+        <div class="space-y-3">
+          <p class="font-semibold">Antarmuka Mudah Digunakan</p>
+          <p class="text-sm text-gray-500">
+            Cukup unggah atau ambil foto, dan dapatkan hasilnya secara instan
+            melalui antarmuka yang mudah dipahami.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fitur 3 -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div
+          class="w-10 h-10 rounded-lg flex justify-center items-center bg-red-500 text-white"
+        >
+          <span class="text-2xl">📖</span>
+        </div>
+        <div class="space-y-3">
+          <p class="font-semibold">Profil Kucing yang Lengkap</p>
+          <p class="text-sm text-gray-500">
+            Jelajahi informasi mendalam tentang asal-usul, kepribadian, dan ciri
+            khas dari setiap ras kucing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fitur 4 -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div
+          class="w-10 h-10 rounded-lg flex justify-center items-center bg-green-500 text-white"
+        >
+          <span class="text-2xl">🐾</span>
+        </div>
+        <div class="space-y-3">
+          <p class="font-semibold">Saran Perawatan Kucing</p>
+          <p class="text-sm text-gray-500">
+            Dapatkan tips perawatan khusus untuk setiap jenis kucing agar tetap
+            sehat dan bahagia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="overflow-hidden py-20">
+  <div class="container">
+    <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
+      <h1 class="uppercase font-semibold text-primary">PERTANYAAN</h1>
+      <p class="font-semibold text-3xl">Apa aja sih yang sering ditanyain?</p>
+    </div>
+  </div>
+</section>
+
+<!-- Review Section -->
+<section id="review" class="overflow-hidden py-20">
+  <div class="container">
+    <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
+      <h1 class="uppercase font-semibold text-primary">Review Pengguna</h1>
+      <p class="font-semibold text-3xl">Apa kata mereka tentang CatVerse</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Review 1 -->
+      <div
+        class="border-2 rounded-3xl rounded-tl-none shadow-xl flex flex-col justify-between"
+      >
+        <div class="px-6 py-6">
+          <div class="text-6xl font-bold h-10">“</div>
+          <div
+            class="min-h-[150px] sm:min-h-[230px] md:min-h-[180px] lg:min-h-[210px] xl:min-h-[180px] 2xl:min-h-[130px]"
+          >
+            <p class="font-medium mb-4">
+              Web ini bener-bener membantu! Saya upload foto kucing saya dan
+              ternyata dia ras Maine Coon. Dulu saya nggak tahu, sekarang saya
+              bisa kasih perawatan yang lebih baik. Seru banget bisa belajar
+              tentang rasnya!
+            </p>
+          </div>
+          <div class="text-6xl font-bold h-10 text-right">”</div>
+        </div>
+        <div class="flex items-center px-6 py-8 w-full border-t-2">
+          <img
+            src="{{ url_for('static', filename='dist/images/review1.png') }}"
+            alt="photo"
+            class="w-20 h-20 rounded-full mr-4 object-cover"
+          />
+          <div class="flex flex-col gap-1">
+            <div class="font-bold ps-1">Ataka Dzulfikar</div>
+            <!-- Rating -->
+            <div class="flex items-center">
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div
+        class="border-2 rounded-3xl rounded-tl-none shadow-xl flex flex-col justify-between"
+      >
+        <div class="px-6 py-6">
+          <div class="text-6xl font-bold h-10">“</div>
+          <div
+            class="min-h-[150px] sm:min-h-[230px] md:min-h-[180px] lg:min-h-[210px] xl:min-h-[180px] 2xl:min-h-[130px]"
+          >
+            <p class="font-medium mb-4">
+              Ketemu kucing liar di jalan dan penasaran banget. Cek di website
+              ini, ternyata dia ras Siamese! Informasinya super berguna dan
+              seneng banget bisa tahu lebih banyak tentang dia!
+            </p>
+          </div>
+          <div class="text-6xl font-bold h-10 text-right">”</div>
+        </div>
+        <div class="flex items-center px-6 py-8 w-full border-t-2">
+          <img
+            src="{{ url_for('static', filename='dist/images/review2.jpg') }}"
+            alt="photo"
+            class="w-20 h-20 rounded-full mr-4 object-cover"
+          />
+          <div class="flex flex-col gap-1">
+            <div class="font-bold ps-1">Wahyu Nur</div>
+            <!-- Rating -->
+            <div class="flex items-center">
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div
+        class="border-2 rounded-3xl rounded-tl-none shadow-xl flex flex-col justify-between"
+      >
+        <div class="px-6 py-6">
+          <div class="text-6xl font-bold h-10">“</div>
+          <div
+            class="min-h-[150px] sm:min-h-[230px] md:min-h-[180px] lg:min-h-[210px] xl:min-h-[180px] 2xl:min-h-[130px]"
+          >
+            <p class="font-medium mb-4">
+              Seru banget! Aku upload foto kucingku dan website ini bilang dia
+              ras Persia. Hasilnya cepet dan akurat, jadi aku bisa tahu cara
+              merawatnya dengan lebih baik.
+            </p>
+          </div>
+          <div class="text-6xl font-bold h-10 text-right">”</div>
+        </div>
+        <div class="flex items-center px-6 py-8 w-full border-t-2">
+          <img
+            src="{{ url_for('static', filename='dist/images/review3.jpeg') }}"
+            alt="photo"
+            class="w-20 h-20 rounded-full mr-4 object-cover"
+          />
+          <div class="flex flex-col gap-1">
+            <div class="font-bold ps-1">Muhammad Efflin</div>
+            <!-- Rating -->
+            <div class="flex items-center">
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+              <svg
+                class="w-4 h-4 text-yellow-300 ms-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 20"
+              >
+                <path
+                  d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="kontak" class="overflow-hidden py-20">
+  <div class="container">
+    <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
+      <h1 class="uppercase font-semibold text-primary">Kontak</h1>
+      <p class="font-semibold text-3xl">Yuk hubungi kami!</p>
+    </div>
+    <div class="pt-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-28">
+      <div class="space-y-4">
+        <h2 class="text-4xl font-light max-w-[290px]">
+          Hubungi kami lebih lanjut👋
+        </h2>
+        <p class="font-light w-3/4">
+          Jika ada pertanyaan, saran, atau masukan, jangan ragu untuk menghubungi kami melalui form.
+        </p>
+      </div>
+      <div>
+        <form class="space-y-5" method="POST" autocomplete="off">
+          <div>
+            <label
+              htmlFor="fullName"
+              class="block text-md font-medium mb-3"
+            >
+              Nama Lengkap
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm"
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" class="block text-md font-medium mb-3">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" class="block text-md font-medium mb-3">
+              Pesan
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="{5}"
+              required
+              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm placeholder"
+              placeholder="Write your message here"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-primary text-base text-white font-semibold py-2 px-6 rounded-md hover:bg-orange-700 transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
