@@ -1,21 +1,36 @@
 {% extends "base.html" %} {% block content %}
 
 <section class="pt-20 pb-6">
-  <div class="container">
-    <h1 class="text-4xl font-bold text-center">Classify Your Cat's Breed</h1>
+  <div class="container md:w-[60%]">
+    <h1 class="text-4xl font-bold text-center">
+      Yuk Identifikasi Ras Kucing Kamu
+    </h1>
     <form
+      id="myForm"
       action="/classify"
       method="POST"
       enctype="multipart/form-data"
       class="mt-10 text-center"
     >
+      <!-- Drag and Drop Area -->
       <div
-        class="max-w-[35%] border-2 border-primary rounded-lg bg-orange-50 mx-auto"
+        id="dropArea"
+        class="flex justify-center items-center w-full min-h-40 border-2 border-dotted border-primary rounded-lg bg-orange-50 mx-auto relative"
       >
-        <label for="upload" class="text-primary text-base">
-          <p class="px-6 py-6">
-            Upload your cat image
-            <span class="font-semibold cursor-pointer underline">Here:</span>
+        <img
+          id="preview"
+          src=""
+          alt="Image Preview"
+          class="mx-auto rounded-md hidden md:max-w-[500px]"
+        />
+        <label
+          for="upload"
+          id="uploadLabel"
+          class="text-primary text-base flex justify-center items-center absolute inset-0 cursor-pointer"
+        >
+          <p>
+            Drag and drop foto kucing kamu disini atau
+            <span class="font-semibold underline">Upload</span>
           </p>
         </label>
       </div>
@@ -26,57 +41,132 @@
         accept="image/*"
         required
         class="my-2"
-        onchange="previewImage(event)"
         hidden
+        onchange="previewImage(event)"
       />
-      <button
-        type="submit"
-        class="px-6 py-3 mt-4 mb-6 bg-primary text-white rounded-full font-medium"
-      >
-        Classify
-      </button>
     </form>
-
-    <!-- Preview Image -->
-    <img
-      id="preview"
-      src=""
-      alt="Image Preview"
-      class="max-w-[35%] mx-auto rounded-md hidden"
-    />
-
-    {% if image_url %}
-    <div class="mt-6">
-      <img
-        src="{{ image_url }}"
-        alt="Uploaded Image"
-        class="max-w-[35%] mx-auto rounded-md"
-      />
+    <div
+      id="tips"
+      class="hidden bg-blue-50 border border-blue-200 rounded-md p-4 mt-8 md:w-[60%] mx-auto"
+    >
+      <p class="text-sm text-blue-700 font-medium flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-2"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10c0 4.418-3.582 8-8 8a8 8 0 110-16c4.418 0 8 3.582 8 8zm-9 4a1 1 0 102 0h-2zm0-8a1 1 0 012 0v4a1 1 0 11-2 0V6z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Tips: Klik pada foto untuk mengganti foto yang diunggah.
+      </p>
     </div>
-    {% endif %}
-</section>
-
-<section>
-  <div class="container">
-    <div class="mt-6">
-      {% if breed %}
-      <div class="mt-2">
-        <h2 class="text-2xl font-semibold text-center">Predicted Breed: {{ breed }}</h2>
-      </div>
-      {% endif %}
-
-      {% if message %}
-      <div class="mt-10">
-        <h2 class="text-red-600 text-2xl font-semibold text-center">{{ message }}</h2>
-      </div>
-      {% endif %}
-    </div>
-    <!-- Card Container -->
-    <div id="breed-card" class="mt-10 max-w-[70%] mx-auto"></div>
   </div>
 </section>
 
-<script src="{{ url_for('static', filename='dist/js/preview.js') }}"></script>
+<!-- Hasil -->
+{% if breed %}
+<section class="hasil">
+  <div class="container md:w-[60%]">
+    <div class="mt-6 mx-auto mb-6">
+      <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <h2 class="text-3xl font-bold text-center text-primary">
+          Prediksi Ras: <span class="text-blue-600">{{ breed }}</span>
+        </h2>
+      </div>
+    </div>
+    
+    <!-- Deskripsi Hasil Kucing -->
+    <div class="grid grid-cols-1 gap-6">
+      <!-- Asal Kucing -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div class="flex items-center gap-5">
+          <div
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-blue-600 text-white"
+          >
+            <span class="text-2xl">😺</span>
+          </div>
+          <p class="font-semibold">Asal Kucing</p>
+        </div>
 
+        <div class="space-y-3">
+          <p class="text-sm text-gray-500">asal kucing...</p>
+        </div>
+      </div>
+
+      <!-- Kepribadian Kucing -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div class="flex items-center gap-5">
+          <div
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-purple-500 text-white"
+          >
+            <span class="text-2xl">💬</span>
+          </div>
+          <p class="font-semibold">Kepribadian Kucing</p>
+        </div>
+        <div class="space-y-3">
+          <p class="text-sm text-gray-500">Kepribadian...</p>
+        </div>
+      </div>
+
+      <!-- Ciri Khas Kucing -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div class="flex items-center gap-5">
+          <div
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-red-500 text-white"
+          >
+            <span class="text-2xl">🐈‍⬛</span>
+          </div>
+          <p class="font-semibold">Ciri Khas Kucing</p>
+        </div>
+        <div class="space-y-3">
+          <p class="text-sm text-gray-500">Ciri...</p>
+        </div>
+      </div>
+
+      <!-- Saran Perawatan  -->
+      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+        <div class="flex items-center gap-5">
+          <div
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-green-500 text-white"
+          >
+            <span class="text-2xl">❤️‍🩹</span>
+          </div>
+          <p class="font-semibold">Saran Perawatan Kucing</p>
+        </div>
+        <div class="space-y-3">
+          <p class="text-sm text-gray-500">Saran...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %} 
+
+{% if message %}
+<div class="container md:w-[60%]">
+  <div class="mt-6 mx-auto mb-6">
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <h2 class="text-xl font-bold text-center text-primary">
+        Hasil: <span class="text-blue-600">{{ message }}</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- <div class="mt-10">
+    <h1 class="font-bold mx-auto text-2xl text-center">Hasil:</h1>
+    <h2 class="text-red-600 text-2xl font-semibold text-center">
+      {{ message }}
+    </h2>
+  </div> -->
+</div>
+{% endif %}
+
+<script src="{{ url_for('static', filename='dist/js/formHandler.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='dist/js/preview.js') }}"></script> -->
 
 {% endblock %}
