@@ -27,6 +27,9 @@ def classify():
             # Membuka file gambar menggunakan PIL
             img = Image.open(file.stream)
 
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+
             # Mengubah ukuran gambar sesuai input yang diinginkan oleh model
             img = img.resize((224, 224))  # Sesuaikan dengan ukuran input model Anda
 
