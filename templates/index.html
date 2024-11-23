@@ -3,10 +3,10 @@
 <section class="pt-20 pb-20">
   <div class="container flex flex-col items-center gap-6 text-center">
     <div class="w-full space-y-5">
-      <h1 class="text-6xl font-bold max-w-[63%] mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold max-w-[63%] mx-auto text-center">
         Situs terbaik buat ketahui ras kucingmu cuma pakai satu foto aja!
       </h1>
-      <p class="max-w-[55%] mx-auto text-gray-500">
+      <p class="text-sm md:text-base max-w-[55%] mx-auto text-gray-500">
         Cukup upload atau ambil foto kucingmu, dan biarkan kami bantu mengungkap
         rasnya. Temukan fakta menarik tentang kucingmu dengan cara yang simpel
         dan menyenangkan!
@@ -24,193 +24,198 @@
 </section>
 
 <!-- Ras Section -->
-<section id="ras" class="bg-secondary overflow-hidden py-20">
-  <div class="container">
+<section id="ras" class="bg-secondary overflow-hidden pt-20">
+  <div class="container relative">
     <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
       <h1 class="uppercase font-semibold text-primary">Yuk Kenalan</h1>
       <p class="font-semibold text-3xl">Ras Kucing Paling Populer</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      <!-- Abyssinian -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/abys.png') }}"
-          alt="Abyssinian"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Abyssinian</h2>
-          <p class="text-gray-500 mb-4">
-            Kucing Abyssinian berasal dari Ethiopia dan dikenal sebagai kucing
-            yang aktif dan cerdas.
-          </p>
+    <div class="swiper w-[80%] md:w-full">
+      <div class="swiper-wrapper pb-10">
+        <!-- Abyssinian -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/abys.png') }}"
+            alt="Abyssinian"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 text-center h-[190px]">
+            <h2 class="text-xl font-semibold mb-2">Abyssinian</h2>
+            <p class="text-gray-500 mb-4">
+              Kucing Abyssinian berasal dari Ethiopia dan dikenal sebagai kucing
+              yang aktif dan cerdas.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Bengal -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/bengal.png') }}"
-          alt="Bengal"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Bengal</h2>
-          <p class="text-gray-500 mb-4">
-            Bengal memiliki pola bulu seperti macan tutul dan sangat energik
-            serta suka bermain.
-          </p>
+        <!-- Bengal -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/bengal.png') }}"
+            alt="Bengal"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Bengal</h2>
+            <p class="text-gray-500 mb-4">
+              Bengal memiliki pola bulu seperti macan tutul dan sangat energik
+              serta suka bermain.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Bombay -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/bombay.png') }}"
-          alt="Bombay"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Bombay</h2>
-          <p class="text-gray-500 mb-4">
-            Bombay memiliki bulu hitam pekat dan kepribadian yang ramah serta
-            penuh kasih sayang.
-          </p>
+        <!-- Bombay -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/bombay.png') }}"
+            alt="Bombay"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Bombay</h2>
+            <p class="text-gray-500 mb-4">
+              Bombay memiliki bulu hitam pekat dan kepribadian yang ramah dan
+              baik
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- British Shorthair -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/british.png') }}"
-          alt="British Shorthair"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">British Shorthair</h2>
-          <p class="text-gray-500 mb-4">
-            British Shorthair terkenal dengan tubuh kekar, bulu lebat, dan sifat
-            yang tenang.
-          </p>
+        <!-- British Shorthair -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/british.png') }}"
+            alt="British Shorthair"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">British Shorthair</h2>
+            <p class="text-gray-500 mb-4">
+              British Shorthair terkenal dengan tubuh kekar, bulu lebat, dan
+              sifat yang tenang.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Domestic -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/domestic.png') }}"
-          alt="Domestic"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Domestic</h2>
-          <p class="text-gray-500 mb-4">
-            Domestic cats adalah kucing peliharaan yang memiliki beragam warna,
-            ukuran, dan kepribadian.
-          </p>
+        <!-- Domestic -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/domestic.png') }}"
+            alt="Domestic"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Domestic</h2>
+            <p class="text-gray-500 mb-4">
+              Domestic cats adalah kucing peliharaan yang memiliki beragam
+              warna.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Maine Coon -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/maine.png') }}"
-          alt="Maine Coon"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Maine Coon</h2>
-          <p class="text-gray-500 mb-4">
-            Maine Coon adalah kucing besar berbulu lebat dengan sifat ramah dan
-            penuh kasih sayang.
-          </p>
+        <!-- Maine Coon -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/maine.png') }}"
+            alt="Maine Coon"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Maine Coon</h2>
+            <p class="text-gray-500 mb-4">
+              Maine Coon adalah kucing besar berbulu lebat dengan sifat ramah
+              dan penuh kasih sayang.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Persian -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/persian.png') }}"
-          alt="Persian"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Persian</h2>
-          <p class="text-gray-500 mb-4">
-            Persian memiliki bulu panjang dan wajah bulat, dikenal dengan
-            sifatnya yang tenang.
-          </p>
+        <!-- Persian -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/persian.png') }}"
+            alt="Persian"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Persian</h2>
+            <p class="text-gray-500 mb-4">
+              Persian memiliki bulu panjang dan wajah bulat, dikenal dengan
+              sifatnya yang tenang.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Ragdoll -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/ragdoll.png') }}"
-          alt="Ragdoll"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Ragdoll</h2>
-          <p class="text-gray-500 mb-4">
-            Ragdoll dikenal sangat lembut dan suka mengikuti pemiliknya ke mana
-            saja.
-          </p>
+        <!-- Ragdoll -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/ragdoll.png') }}"
+            alt="Ragdoll"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Ragdoll</h2>
+            <p class="text-gray-500 mb-4">
+              Ragdoll dikenal sangat lembut dan suka mengikuti pemiliknya ke
+              mana saja.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Siamese -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/siamese.png') }}"
-          alt="Siamese"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Siamese</h2>
-          <p class="text-gray-500 mb-4">
-            Siamese memiliki bulu pendek dengan pola khas dan vokalisasi yang
-            unik.
-          </p>
+        <!-- Siamese -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/siamese.png') }}"
+            alt="Siamese"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Siamese</h2>
+            <p class="text-gray-500 mb-4">
+              Siamese memiliki bulu pendek dengan pola khas dan vokalisasi yang
+              unik.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Sphynx -->
-      <div
-        class="bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
-      >
-        <img
-          src="{{ url_for('static', filename='dist/images/sphynx.png') }}"
-          alt="Sphynx"
-          class="h-48 w-full object-cover"
-        />
-        <div class="p-6 text-center">
-          <h2 class="text-xl font-semibold mb-2">Sphynx</h2>
-          <p class="text-gray-500 mb-4">
-            Sphynx adalah kucing tanpa bulu dengan sifat yang sangat ramah dan
-            energik.
-          </p>
+        <!-- Sphynx -->
+        <div
+          class="swiper-slide flex flex-col bg-white rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] overflow-hidden"
+        >
+          <img
+            src="{{ url_for('static', filename='dist/images/sphynx.png') }}"
+            alt="Sphynx"
+            class="h-48 w-full object-cover"
+          />
+          <div class="p-6 h-[190px] text-center">
+            <h2 class="text-xl font-semibold mb-2">Sphynx</h2>
+            <p class="text-gray-500 mb-4">
+              Sphynx adalah kucing tanpa bulu dengan sifat yang sangat ramah dan
+              energik.
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Navigasi panah -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 </section>
 
@@ -292,10 +297,182 @@
 
 <!-- FAQ Section -->
 <section id="faq" class="overflow-hidden py-20">
-  <div class="container">
+  <div class="container md:w-[80%]">
     <div class="space-y-4 p-6 text-center max-w-[500px] mx-auto mb-5">
       <h1 class="uppercase font-semibold text-primary">PERTANYAAN</h1>
       <p class="font-semibold text-3xl">Apa aja sih yang sering ditanyain?</p>
+    </div>
+
+    <div id="accordion-collapse" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-1">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-800 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+          data-accordion-target="#accordion-collapse-body-1"
+          aria-expanded="true"
+          aria-controls="accordion-collapse-body-1"
+        >
+          <span>Website ini bisa mendeteksi berapa jenis ras kucing?</span>
+          <svg
+            data-accordion-icon
+            class="w-3 h-3 rotate-180 shrink-0"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5 5 1 1 5"
+            />
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-collapse-body-1"
+        class="hidden"
+        aria-labelledby="accordion-collapse-heading-1"
+      >
+        <div
+          class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+        >
+          <p class="mb-2 text-gray-800 dark:text-gray-400">
+            Website ini bisa mendeteksi sejumlah 10 jenis ras kucing populer,
+            seperti Abyssinian, Bengal, Bombay, British Shorthair, Domestic,
+            Maine Coon, Persian, Ragdoll, Siamese, dan Sphynx.
+          </p>
+        </div>
+      </div>
+      <h2 id="accordion-collapse-heading-2">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-800 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+          data-accordion-target="#accordion-collapse-body-2"
+          aria-expanded="false"
+          aria-controls="accordion-collapse-body-2"
+        >
+          <span>
+            Bagaimana cara mengunggah gambar untuk mendeteksi ras kucing?
+          </span>
+          <svg
+            data-accordion-icon
+            class="w-3 h-3 rotate-180 shrink-0"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5 5 1 1 5"
+            />
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-collapse-body-2"
+        class="hidden"
+        aria-labelledby="accordion-collapse-heading-2"
+      >
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+          <p class="mb-2 text-gray-800 dark:text-gray-400">
+            Anda hanya perlu mengunjungi halaman "Classify" di bagian
+            Identifikasi atau Mulai Sekarang, lalu mengunggah gambar kucing yang
+            ingin Anda deteksi. Pastikan gambar yang diunggah jelas dan terlihat
+            dengan baik untuk hasil yang lebih akurat.
+          </p>
+        </div>
+      </div>
+      <h2 id="accordion-collapse-heading-3">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-800 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+          data-accordion-target="#accordion-collapse-body-3"
+          aria-expanded="false"
+          aria-controls="accordion-collapse-body-3"
+        >
+          <span>Apakah website ini hanya bisa mendeteksi ras kucing?</span>
+          <svg
+            data-accordion-icon
+            class="w-3 h-3 rotate-180 shrink-0"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5 5 1 1 5"
+            />
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-collapse-body-3"
+        class="hidden"
+        aria-labelledby="accordion-collapse-heading-3"
+      >
+        <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+          <p class="mb-2 text-gray-800 dark:text-gray-400">
+            Saat ini, website ini hanya dirancang untuk mendeteksi ras kucing
+            berdasarkan gambar yang diunggah. Kami sedang mengembangkan fitur
+            lain di masa depan.
+          </p>
+        </div>
+      </div>
+      <h2 id="accordion-collapse-heading-4">
+        <button
+          type="button"
+          class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-800 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+          data-accordion-target="#accordion-collapse-body-4"
+          aria-expanded="false"
+          aria-controls="accordion-collapse-body-4"
+        >
+          <span>
+            Apa yang harus saya lakukan jika gambar yang diunggah tidak
+            terdeteksi dengan baik?
+          </span>
+          <svg
+            data-accordion-icon
+            class="w-3 h-3 rotate-180 shrink-0"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5 5 1 1 5"
+            />
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-collapse-body-4"
+        class="hidden"
+        aria-labelledby="accordion-collapse-heading-4"
+      >
+        <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+          <p class="mb-2 text-gray-800 dark:text-gray-400">
+            Jika gambar tidak terdeteksi dengan baik, pastikan gambar yang
+            diunggah jelas, dengan kualitas tinggi, dan menunjukkan kucing
+            secara keseluruhan. Jika masalah berlanjut, coba unggah gambar lain
+            yang lebih jelas.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -586,16 +763,14 @@
           Hubungi kami lebih lanjut👋
         </h2>
         <p class="font-light w-3/4">
-          Jika ada pertanyaan, saran, atau masukan, jangan ragu untuk menghubungi kami melalui form.
+          Jika ada pertanyaan, saran, atau masukan, jangan ragu untuk
+          menghubungi kami melalui form.
         </p>
       </div>
       <div>
         <form class="space-y-5" method="POST" autocomplete="off">
           <div>
-            <label
-              htmlFor="fullName"
-              class="block text-md font-medium mb-3"
-            >
+            <label htmlFor="fullName" class="block text-md font-medium mb-3">
               Nama Lengkap
             </label>
             <input
@@ -603,7 +778,7 @@
               id="fullName"
               name="fullName"
               required
-              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm"
+              class="bg-zinc-100 p-3 block w-full rounded-md border-none shadow-sm"
               placeholder="Enter your full name"
             />
           </div>
@@ -617,7 +792,7 @@
               id="email"
               name="email"
               required
-              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm"
+              class="bg-zinc-100 p-3 block w-full rounded-md border-none shadow-sm"
               placeholder="Enter your email"
             />
           </div>
@@ -631,7 +806,7 @@
               name="message"
               rows="{5}"
               required
-              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm placeholder"
+              class="bg-zinc-100 p-3 block w-full rounded-md shadow-sm border-none placeholder"
               placeholder="Write your message here"
             ></textarea>
           </div>
@@ -647,5 +822,9 @@
     </div>
   </div>
 </section>
+
+<script src="{{ url_for('static', filename='dist/js/flowbite.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/js/swiper.js') }}"></script>
 
 {% endblock %}
