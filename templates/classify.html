@@ -17,23 +17,18 @@
         id="dropArea"
         class="flex justify-center items-center w-full min-h-40 border-2 border-dotted border-primary rounded-lg bg-orange-50 mx-auto relative"
       >
-        <img
-          id="preview"
-          src=""
-          alt="Image Preview"
-          class="mx-auto rounded-md hidden md:max-w-[500px]"
-        />
         <label
           for="upload"
           id="uploadLabel"
           class="text-primary text-base flex justify-center items-center absolute inset-0 cursor-pointer"
         >
           <p>
-            Drag and drop foto kucing kamu disini atau
+            Drag and drop foto kucing kamu di sini atau
             <span class="font-semibold underline">Upload</span>
           </p>
         </label>
       </div>
+      <!-- File Input -->
       <input
         type="file"
         id="upload"
@@ -42,12 +37,24 @@
         required
         class="my-2"
         hidden
-        onchange="previewImage(event)"
       />
     </form>
+  </div>
+</section>
+
+<!-- Hasil -->
+{% if breed %}
+<section id="hasil" class="hasil">
+  <div class="container md:w-[60%]">
+    <img
+      id="preview"
+      src="data:image/png;base64,{{ img }}"
+      alt="Image Preview"
+      class="mx-auto rounded-md md:w-[50%] object-contain"
+    />
     <div
       id="tips"
-      class="hidden bg-blue-50 border border-blue-200 rounded-md p-4 mt-8 md:w-[60%] mx-auto"
+      class="bg-blue-50 border border-blue-200 rounded-md p-4 mt-8 md:w-[75%] mx-auto"
     >
       <p class="text-sm text-blue-700 font-medium flex items-center">
         <svg
@@ -62,39 +69,38 @@
             clip-rule="evenodd"
           />
         </svg>
-        Tips: Klik pada foto untuk mengganti foto yang diunggah.
+        Tips: Klik atau tarik foto pada drop field untuk mengganti foto yang diunggah.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- Hasil -->
-{% if breed %}
-<section class="hasil">
-  <div class="container md:w-[60%]">
     <div class="mt-6 mx-auto mb-6">
-      <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <div
+        class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]"
+      >
         <h2 class="text-3xl font-bold text-center text-primary">
-          Prediksi Ras: <span class="text-blue-600">{{ breed }}</span>
+          Prediksi Ras:
+          <span class="text-blue-600">{{ breed }}</span>
         </h2>
       </div>
     </div>
-    
+
     <!-- Deskripsi Hasil Kucing -->
-    <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Asal Kucing -->
       <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
         <div class="flex items-center gap-5">
           <div
-            class="w-10 h-10 rounded-lg flex justify-center items-center bg-blue-600 text-white"
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-blue-600"
           >
             <span class="text-2xl">😺</span>
           </div>
-          <p class="font-semibold">Asal Kucing</p>
+          <p class="font-bold text-xl">Asal Kucing</p>
         </div>
 
         <div class="space-y-3">
-          <p class="text-sm text-gray-500">asal kucing...</p>
+          <!-- Menampilkan Asal Kucing -->
+          <p class="text-base text-gray-800">
+            {{ char['asal'] or 'Informasi asal kucing tidak tersedia.' }}
+          </p>
         </div>
       </div>
 
@@ -102,14 +108,18 @@
       <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
         <div class="flex items-center gap-5">
           <div
-            class="w-10 h-10 rounded-lg flex justify-center items-center bg-purple-500 text-white"
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-purple-500"
           >
             <span class="text-2xl">💬</span>
           </div>
-          <p class="font-semibold">Kepribadian Kucing</p>
+          <p class="font-bold text-xl">Kepribadian Kucing</p>
         </div>
         <div class="space-y-3">
-          <p class="text-sm text-gray-500">Kepribadian...</p>
+          <!-- Menampilkan Kepribadian Kucing -->
+          <p class="text-base text-gray-800">
+            {{ char['kepribadian'] or 'Informasi kepribadian kucing tidak
+            tersedia.' }}
+          </p>
         </div>
       </div>
 
@@ -117,52 +127,61 @@
       <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
         <div class="flex items-center gap-5">
           <div
-            class="w-10 h-10 rounded-lg flex justify-center items-center bg-red-500 text-white"
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-red-500"
           >
             <span class="text-2xl">🐈‍⬛</span>
           </div>
-          <p class="font-semibold">Ciri Khas Kucing</p>
+          <p class="font-bold text-xl">Ciri Khas Kucing</p>
         </div>
         <div class="space-y-3">
-          <p class="text-sm text-gray-500">Ciri...</p>
+          <!-- Menampilkan Ciri Khas Kucing -->
+          <p class="text-base text-gray-800">
+            {{ char['ciriFisik'] or 'Informasi ciri khas kucing tidak tersedia.'
+            }}
+          </p>
         </div>
       </div>
 
-      <!-- Saran Perawatan  -->
+      <!-- Saran Perawatan -->
       <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
         <div class="flex items-center gap-5">
           <div
-            class="w-10 h-10 rounded-lg flex justify-center items-center bg-green-500 text-white"
+            class="w-10 h-10 rounded-lg flex justify-center items-center bg-green-500"
           >
             <span class="text-2xl">❤️‍🩹</span>
           </div>
-          <p class="font-semibold">Saran Perawatan Kucing</p>
+          <p class="font-bold text-xl">Saran Perawatan Kucing</p>
         </div>
         <div class="space-y-3">
-          <p class="text-sm text-gray-500">Saran...</p>
+          <!-- Menampilkan Saran Perawatan Kucing -->
+          <ol class="list-decimal pl-5">
+            {% for tip in char['tipsPerawatan'] %}
+            <li class="text-base text-gray-800">{{ tip }}</li>
+            {% endfor %}
+          </ol>
         </div>
       </div>
     </div>
   </div>
 </section>
-{% endif %} 
-
-{% if message %}
-<div class="container md:w-[60%]">
+{% endif %} {% if message %}
+<div id="message" class="container md:w-[60%]">
+  <img
+    id="preview"
+    src="data:image/png;base64,{{ img }}"
+    alt="Image Preview"
+    class="mx-auto rounded-md md:max-w-[500px]"
+  />
   <div class="mt-6 mx-auto mb-6">
-    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+    <div
+      class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]"
+    >
       <h2 class="text-xl font-bold text-center text-primary">
-        Hasil: <span class="text-blue-600">{{ message }}</span>
+        Hasil:
+        <span class="text-blue-600">{{ message }}</span>
       </h2>
     </div>
   </div>
-
-  <!-- <div class="mt-10">
-    <h1 class="font-bold mx-auto text-2xl text-center">Hasil:</h1>
-    <h2 class="text-red-600 text-2xl font-semibold text-center">
-      {{ message }}
-    </h2>
-  </div> -->
 </div>
 {% endif %}
 
