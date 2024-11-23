@@ -1,66 +1,82 @@
 from flask import Flask, render_template, request
+import tensorflow as tf
 from PIL import Image
 import numpy as np
-import tensorflow as tf
+import io
+import base64
+from detail_ras import detailRas
 
 app = Flask(__name__)
 
 # Memuat model
 model = tf.keras.models.load_model('model/cat_model.h5')
 
-# Rute untuk halaman utama (index)
+# Daftar kelas kucing
+classes = ["Abyssinian", "Bengal", "Bombay", "British Shorthair", "Domestic",
+           "Maine Coon", "Persian", "Ragdoll", "Siamese", "Sphynx"]
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# Rute untuk halaman klasifikasi
+
 @app.route("/classify", methods=["GET", "POST"])
 def classify():
-    threshold = 85.0  # Menetapkan threshold kepercayaan
+    threshold = 85.0
     breed = None
     message = None
+    img_base64 = None
 
     if request.method == "POST":
-        # Mengambil file gambar yang diupload
-        file = request.files["upload"]
-        if file:
-            # Membuka file gambar menggunakan PIL
-            img = Image.open(file.stream)
+        file = request.files.get("upload")  # Ambil file yang diunggah
+        if not file:
+            return render_template("classify.html", message="Silakan unggah file gambar.")
 
+        try:
+            # Proses gambar
+            img = Image.open(file.stream)
             if img.mode != 'RGB':
                 img = img.convert('RGB')
 
-            # Mengubah ukuran gambar sesuai input yang diinginkan oleh model
-            img = img.resize((224, 224))  # Sesuaikan dengan ukuran input model Anda
+            img = img.resize((224, 224))  # Sesuaikan ukuran input model
+            img_array = np.array(img) / 255.0  # Normalisasi
+            img_array = np.expand_dims(img_array, axis=0)  # Tambahkan batch dimension
 
-            # Mengkonversi gambar ke array dan normalisasi
-            img_array = np.array(img) / 255.0  # Normalisasi pixel
+            # Konversi gambar ke Base64
+            img_io = io.BytesIO()
+            img.save(img_io, 'PNG')
+            img_io.seek(0)
+            img_base64 = base64.b64encode(img_io.getvalue()).decode('utf-8')
 
-            # Tambahkan batch dimension
-            img_array = np.expand_dims(img_array, axis=0)
-
-            # Melakukan prediksi dengan model
+            # Prediksi
             prediction = model.predict(img_array)
             predicted_class = np.argmax(prediction, axis=1)[0]
-            confidence_score = np.max(prediction) * 100  # Skor kepercayaan
+            confidence_score = np.max(prediction) * 100
 
-            # Daftar kelas kucing
-            classes = ["Abyssinian", "Bengal", "Bombay", "British Shorthair", "Domestic", "Maine Coon", "Persian", "Ragdoll", "Siamese", "Sphynx"]
-
-            # Mengambil nama kelas berdasarkan prediksi
+            # Ambil nama kelas
             breed = classes[predicted_class]
+            print("img_base64:", img_base64)  # Cek nilai Base64 di console
 
-            # Jika skor kepercayaan lebih rendah dari threshold, tampilkan pesan peringatan
             if confidence_score < threshold:
                 message = "Foto ini kemungkinan bukan foto kucing, coba foto yang lainnya."
                 breed = None
             else:
-                message = None  # Menghilangkan pesan jika skor kepercayaan cukup
+                message = None
 
-            # Menampilkan hasil prediksi ke halaman
-            return render_template("classify.html", breed=breed, message=message)
+        except Exception as e:
+            message = f"Terjadi kesalahan saat memproses gambar: {e}"
+            breed = None
 
-    return render_template("classify.html", breed=breed, message=message)
+    # Kirim data ke template
+    return render_template(
+        "classify.html",
+        breed=breed,
+        message=message,
+        img=img_base64,
+        char=detailRas.get(breed, {})
+    )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
