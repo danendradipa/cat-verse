@@ -20,6 +20,10 @@ classes = ["Abyssinian", "Bengal", "Bombay", "British Shorthair", "Domestic",
 def index():
     return render_template("index.html")
 
+@app.route("/camera")
+def camera():
+    return render_template("camera.html")
+
 
 @app.route("/classify", methods=["GET", "POST"])
 def classify():
@@ -56,7 +60,6 @@ def classify():
 
             # Ambil nama kelas
             breed = classes[predicted_class]
-            print("img_base64:", img_base64)  # Cek nilai Base64 di console
 
             if confidence_score < threshold:
                 message = "Foto ini kemungkinan bukan foto kucing, coba foto yang lainnya."
