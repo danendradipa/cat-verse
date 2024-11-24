@@ -99,7 +99,7 @@ detailRas = {
         "asal": "Siamese berasal dari Thailand dan dikenal sebagai salah satu ras kucing tertua. Mereka memiliki sejarah yang kaya dan sering kali dianggap sebagai kucing kerajaan.",
         "kepribadian": "Kucing Siamese dikenal bersuara, sosial, dan cerdas. Mereka sangat aktif dan suka berinteraksi dengan manusia, sering kali berbicara dengan suara yang khas untuk menarik perhatian.",
         "ciriFisik": "Siamese memiliki bulu pendek dan halus, dengan pola warna yang khas di telinga, wajah, kaki, dan ekor. Mata mereka berbentuk almond dan berwarna biru, memberikan penampilan yang sangat menarik.",
-        "tips Perawatan": [
+        "tipsPerawatan": [
             "Sediakan waktu bermain yang cukup.",
             "Berikan interaksi sosial secara rutin.",
             "Perhatikan kesehatan gigi dan kuku.",
