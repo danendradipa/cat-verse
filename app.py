@@ -20,11 +20,6 @@ classes = ["Abyssinian", "Bengal", "Bombay", "British Shorthair", "Domestic",
 def index():
     return render_template("index.html")
 
-@app.route("/camera")
-def camera():
-    return render_template("camera.html")
-
-
 @app.route("/classify", methods=["GET", "POST"])
 def classify():
     threshold = 85.0
