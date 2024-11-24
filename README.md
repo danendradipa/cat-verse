@@ -1,1 +1,1 @@
-CatVerse is a web application that can identify the breed of a cat from an image.
+CatVerse is a web application that can identify the breed of a cat from an image. This web using Flask and TensorFlow
