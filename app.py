@@ -15,7 +15,6 @@ model = tf.keras.models.load_model('model/cat_model.h5')
 classes = ["Abyssinian", "Bengal", "Bombay", "British Shorthair", "Domestic",
            "Maine Coon", "Persian", "Ragdoll", "Siamese", "Sphynx"]
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
