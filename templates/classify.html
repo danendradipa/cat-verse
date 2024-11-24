@@ -5,6 +5,16 @@
     <h1 class="text-4xl font-bold text-center">
       Yuk Identifikasi Ras Kucing Kamu
     </h1>
+    <div class="flex justify-end">
+      <a
+        href="/camera"
+      >
+        <button class="bg-blue-700 py-3 px-6 rounded-xl text-white mt-5">
+          Mode Ambil Foto
+        </button>
+      </a>
+    </div>
+
     <form
       id="myForm"
       action="/classify"
@@ -50,7 +60,7 @@
       id="preview"
       src="data:image/png;base64,{{ img }}"
       alt="Image Preview"
-      class="mx-auto rounded-md md:w-[50%] object-contain"
+      class="mx-auto rounded-md md:w-[80%] h-96 object-cover"
     />
     <div
       id="tips"
@@ -69,16 +79,17 @@
             clip-rule="evenodd"
           />
         </svg>
-        Tips: Klik atau tarik foto pada drop field untuk mengganti foto yang diunggah.
+        Tips: Klik atau tarik foto pada drop field untuk mengganti foto yang
+        diunggah.
       </p>
     </div>
     <div class="mt-6 mx-auto mb-6">
       <div
-        class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]"
+        class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)] group hover:bg-zinc-800 transition-all duration-500"
       >
-        <h2 class="text-3xl font-bold text-center text-primary">
+        <h2 class="text-3xl font-bold text-center text-blue-600">
           Prediksi Ras:
-          <span class="text-blue-600">{{ breed }}</span>
+          <span class="text-primary">{{ breed }}</span>
         </h2>
       </div>
     </div>
@@ -86,37 +97,53 @@
     <!-- Deskripsi Hasil Kucing -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Asal Kucing -->
-      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <div
+        class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] group hover:bg-zinc-800 transition-all duration-500"
+      >
         <div class="flex items-center gap-5">
           <div
             class="w-10 h-10 rounded-lg flex justify-center items-center bg-blue-600"
           >
             <span class="text-2xl">😺</span>
           </div>
-          <p class="font-bold text-xl">Asal Kucing</p>
+          <p
+            class="font-bold text-xl group-hover:text-white transition-all duration-500"
+          >
+            Asal Kucing
+          </p>
         </div>
 
         <div class="space-y-3">
           <!-- Menampilkan Asal Kucing -->
-          <p class="text-base text-gray-800">
+          <p
+            class="text-base text-gray-800 group-hover:text-zinc-50 transition-all duration-500"
+          >
             {{ char['asal'] or 'Informasi asal kucing tidak tersedia.' }}
           </p>
         </div>
       </div>
 
       <!-- Kepribadian Kucing -->
-      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <div
+        class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] group hover:bg-zinc-800 transition-all duration-500"
+      >
         <div class="flex items-center gap-5">
           <div
             class="w-10 h-10 rounded-lg flex justify-center items-center bg-purple-500"
           >
             <span class="text-2xl">💬</span>
           </div>
-          <p class="font-bold text-xl">Kepribadian Kucing</p>
+          <p
+            class="font-bold text-xl group-hover:text-white transition-all duration-500"
+          >
+            Kepribadian Kucing
+          </p>
         </div>
         <div class="space-y-3">
           <!-- Menampilkan Kepribadian Kucing -->
-          <p class="text-base text-gray-800">
+          <p
+            class="text-base text-gray-800 group-hover:text-zinc-50 transition-all duration-500"
+          >
             {{ char['kepribadian'] or 'Informasi kepribadian kucing tidak
             tersedia.' }}
           </p>
@@ -124,18 +151,26 @@
       </div>
 
       <!-- Ciri Khas Kucing -->
-      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <div
+        class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] group hover:bg-zinc-800 transition-all duration-500"
+      >
         <div class="flex items-center gap-5">
           <div
             class="w-10 h-10 rounded-lg flex justify-center items-center bg-red-500"
           >
             <span class="text-2xl">🐈‍⬛</span>
           </div>
-          <p class="font-bold text-xl">Ciri Khas Kucing</p>
+          <p
+            class="font-bold text-xl group-hover:text-white transition-all duration-500"
+          >
+            Ciri Khas Kucing
+          </p>
         </div>
         <div class="space-y-3">
           <!-- Menampilkan Ciri Khas Kucing -->
-          <p class="text-base text-gray-800">
+          <p
+            class="text-base text-gray-800 group-hover:text-zinc-50 transition-all duration-500"
+          >
             {{ char['ciriFisik'] or 'Informasi ciri khas kucing tidak tersedia.'
             }}
           </p>
@@ -143,20 +178,30 @@
       </div>
 
       <!-- Saran Perawatan -->
-      <div class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)]">
+      <div
+        class="space-y-6 p-6 rounded-xl shadow-[0_0_22px_rgba(0,0,0,0.15)] group hover:bg-zinc-800 transition-all duration-500"
+      >
         <div class="flex items-center gap-5">
           <div
             class="w-10 h-10 rounded-lg flex justify-center items-center bg-green-500"
           >
             <span class="text-2xl">❤️‍🩹</span>
           </div>
-          <p class="font-bold text-xl">Saran Perawatan Kucing</p>
+          <p
+            class="font-bold text-xl group-hover:text-white transition-all duration-500"
+          >
+            Saran Perawatan Kucing
+          </p>
         </div>
         <div class="space-y-3">
           <!-- Menampilkan Saran Perawatan Kucing -->
           <ol class="list-decimal pl-5">
             {% for tip in char['tipsPerawatan'] %}
-            <li class="text-base text-gray-800">{{ tip }}</li>
+            <li
+              class="text-base text-gray-800 group-hover:text-zinc-50 transition-all duration-500"
+            >
+              {{ tip }}
+            </li>
             {% endfor %}
           </ol>
         </div>
@@ -172,13 +217,34 @@
     alt="Image Preview"
     class="mx-auto rounded-md md:max-w-[500px]"
   />
+  <div
+    id="tips"
+    class="bg-blue-50 border border-blue-200 rounded-md p-4 mt-8 md:w-[75%] mx-auto"
+  >
+    <p class="text-sm text-blue-700 font-medium flex items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mr-2"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M18 10c0 4.418-3.582 8-8 8a8 8 0 110-16c4.418 0 8 3.582 8 8zm-9 4a1 1 0 102 0h-2zm0-8a1 1 0 012 0v4a1 1 0 11-2 0V6z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      Tips: Klik atau tarik foto pada drop field untuk mengganti foto yang
+      diunggah.
+    </p>
+  </div>
   <div class="mt-6 mx-auto mb-6">
     <div
       class="bg-white rounded-lg border border-gray-200 p-6 shadow-[0_0_22px_rgba(0,0,0,0.15)]"
     >
-      <h2 class="text-xl font-bold text-center text-primary">
+      <h2 class="text-xl font-bold text-center text-blue-600">
         Hasil:
-        <span class="text-blue-600">{{ message }}</span>
+        <span class="text-primary">{{ message }}</span>
       </h2>
     </div>
   </div>
